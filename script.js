@@ -43,17 +43,15 @@ function initForm(){
 }
 
 // * the first element we run, on dom content loading
-document.addEventListener("DOMContentLoaded",(e)=>{
-    // * check to see if there is support for local storage
-    if (typeof(Storage) !== "undefined") {
-        // * Code for localStorage/sessionStorage.
-        console.log("use local storage!");
-        if(localStorage.getItem("pageTitle")){
-            retrieveTitleValue();
-        }
-        initForm();
-    } else {
-        // * Sorry! No Web Storage support..
-        console.log("no local storage");
+// * check to see if there is support for local storage
+if (typeof(Storage) !== "undefined") {
+    // * Code for localStorage/sessionStorage.
+    console.log("use local storage!");
+    if(localStorage.getItem("pageTitle")){
+        retrieveTitleValue();
     }
-});
+    initForm();
+} else {
+    // * Sorry! No Web Storage support..
+    console.log("no local storage");
+}
